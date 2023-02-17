@@ -10,5 +10,8 @@ export default {
 </script>
 
 <style>
-
+  body{
+   margin: 0px;
+   background-image: url('./assets/background.svg');
+  }
 </style>
