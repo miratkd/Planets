@@ -2,14 +2,14 @@
     <div role="heading" class="Header-container">
         <div class="Header-title">THE PLANETS</div>
         <div class="Header-menu desktop">
-            <button class="Header-menu-button">mercury</button>
-            <button class="Header-menu-button">venus</button>
-            <button class="Header-menu-button">earth</button>
-            <button class="Header-menu-button">mars</button>
-            <button class="Header-menu-button">jupiter</button>
-            <button class="Header-menu-button">saturn</button>
-            <button class="Header-menu-button">uranus</button>
-            <button class="Header-menu-button">neptune</button>
+            <button class="Header-menu-button">Mercúrio</button>
+            <button class="Header-menu-button">Vênus</button>
+            <button class="Header-menu-button">Terra</button>
+            <button class="Header-menu-button">Marte</button>
+            <button class="Header-menu-button">Júpiter</button>
+            <button class="Header-menu-button">Saturno</button>
+            <button class="Header-menu-button">Urano</button>
+            <button class="Header-menu-button">Netuno</button>
         </div>
         <span v-on:click="openMobileMenu()" class="material-icons Header-mobile-menu mobile">menu</span>
     </div>
