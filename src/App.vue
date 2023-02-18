@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style>
-  body{
+  body {
    margin: 0px;
    background-image: url('./assets/background.svg');
    font-family: 'Spartan';
@@ -23,4 +23,5 @@ export default {
     display: flex;
     align-items: center;
   }
+  p {font-family: 'Spartan';}
 </style>
