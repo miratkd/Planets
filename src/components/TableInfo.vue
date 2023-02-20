@@ -30,6 +30,7 @@
     .content-table-container{
         gap: 4vw;
         margin-top: 7vh;
+        font-size: 1vw;
     }
     .content-table-square{
         border: 1px solid white;
@@ -53,5 +54,9 @@
         margin: 0;
         letter-spacing: -1px;
         font-family: 'Antonio';
+    }
+    @media (max-width: 820px) {
+        .content-table-square-title{font-size: 2em;}
+        .content-table-square-value{font-size: 3em;}
     }
 </style>

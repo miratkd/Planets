@@ -6,27 +6,32 @@
             <img v-else :src="require('@/assets/'+planet.image3)" alt="mercury">
         </div>
         <div class="content-info-container">
-            <h1 class="content-info-planet-name">{{ planet.name }}</h1>
-            <p v-if="stage == 1" class="content-info-planet-text content-info-planet-overview-height">{{ planet.overview }}</p>
-            <p v-else-if="stage == 2" class="content-info-planet-text content-info-planet-overview-height">{{ planet.internalStructure }}</p>
-            <p v-else class="content-info-planet-text content-info-planet-overview-height">{{ planet.surfaceGeology }}</p>
-            <div class="content-info-source-container">
-                <p class="content-info-planet-text">Fonte: </p>
-                <a :href="planet.link" target="_blank" class="content-info-source-link">Wikipedia</a>
-                <span class="material-icons content-info-source-icon" >open_in_new</span>
+            <div class="content-info-value">
+                <h1 class="content-info-planet-name">{{ planet.name }}</h1>
+                <p v-if="stage == 1" class="content-info-planet-text content-info-planet-overview-height">{{ planet.overview }}</p>
+                <p v-else-if="stage == 2" class="content-info-planet-text content-info-planet-overview-height">{{ planet.internalStructure }}</p>
+                <p v-else class="content-info-planet-text content-info-planet-overview-height">{{ planet.surfaceGeology }}</p>
+                <div class="content-info-source-container">
+                    <p class="content-info-planet-text">Fonte: </p>
+                    <a :href="planet.link" target="_blank" class="content-info-source-link">Wikipedia</a>
+                    <span class="material-icons content-info-source-icon" >open_in_new</span>
+                </div>
             </div>
-            <button v-on:click="setStage(1)" :style="isActive(1)" class="content-info-button" >
-                <div class="content-info-button-number">01</div>
-                <div class="content-info-button-text">Resumo</div>
-            </button>
-            <button v-on:click="setStage(2)" :style="isActive(2)" class="content-info-button" >
-                <div class="content-info-button-number">02</div>
-                <div class="content-info-button-text">Estrutura interna</div>
-            </button>
-            <button v-on:click="setStage(3)" :style="isActive(3)" class="content-info-button" >
-                <div class="content-info-button-number">03</div>
-                <div class="content-info-button-text">Geologia da superface</div>
-            </button>
+            
+            <div class="content-info-buttons">
+                <button v-on:click="setStage(1)" :style="isActive(1)" class="content-info-button" >
+                    <div class="content-info-button-number">01</div>
+                    <div class="content-info-button-text">Resumo</div>
+                </button>
+                <button v-on:click="setStage(2)" :style="isActive(2)" class="content-info-button" >
+                    <div class="content-info-button-number">02</div>
+                    <div class="content-info-button-text">Estrutura interna</div>
+                </button>
+                <button v-on:click="setStage(3)" :style="isActive(3)" class="content-info-button" >
+                    <div class="content-info-button-number">03</div>
+                    <div class="content-info-button-text">Geologia da superface</div>
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -65,7 +70,14 @@ export default {
     .content-info-container{
         flex-direction: column;
         width: 35%;
+    }
+    .content-info-value{
+        flex-direction: column;
         align-items: flex-start;
+    }
+    .content-info-buttons{
+        flex-direction: column;
+        width: 100%;
     }
     .content-info-planet-name{
         color: white;
@@ -111,4 +123,33 @@ export default {
         font-weight: 700;
     }
     .content-info-button:hover{ background-color: #838391; }
+    @media (max-width: 820px) {
+        .content-container {
+            flex-direction: column;
+            gap: 2vh;
+        }
+        .content-image-container {
+            width: 100%;
+            min-height: 0;
+        }
+        .content-info-container{
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .content-info-value{
+            width: 40%;
+        }
+        .content-info-buttons{ width: 45%; }
+        .content-info-button{
+            margin-top: 0;
+            margin-bottom: 2.5vh;
+        }
+        .content-info-planet-name{ font-size: 6em; }
+        .content-info-planet-text{ font-size: 1.8em; }
+        .content-info-planet-overview-height{ min-height: 14vh; }
+        .content-info-source-link{font-size: 2em; }
+        .content-info-source-icon{ font-size: 3em;}
+        .content-info-source-container{ gap: 1.5vw; }
+    }
 </style>
