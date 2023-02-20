@@ -1,14 +1,23 @@
 <template>
-  <Header />
+  <div style="flex-direction: column;">
+    <Header />
+    <Content :planet="selectedPlanet"/>
+    <TableInfo :planet="selectedPlanet"/>
+  </div>
+  
 </template>
 
 <script>
 import Header from './components/Header.vue';
+import Content from './components/Content.vue';
+import TableInfo from './components/TableInfo.vue';
 
 export default {
   name: 'PlanetsApp',
   components:{
-    Header
+    Header,
+    Content,
+    TableInfo
   },
   data () {
     return {
@@ -22,17 +31,17 @@ export default {
           revolutionTime: '87,97 Dias',
           radius: '2.439,7 km',
           averageTemp: '430°c',
-          image1: 'mercury1',
-          image2: 'mercury2',
-          image3: 'mercury3'
+          image1: 'mercury1.svg',
+          image2: 'mercury2.svg',
+          image3: 'mercury3.svg',
+          link: 'https://pt.wikipedia.org/wiki/Merc%C3%BArio_(planeta)',
+          color: '#419EBB'
         }
       },
       selectedPlanet: {}
     }
   },
-  created () {
-    this.selectedPlanet = this.solarSistem.mercury
-  }
+  created () { this.selectedPlanet = this.solarSistem.mercury }
 }
 </script>
 

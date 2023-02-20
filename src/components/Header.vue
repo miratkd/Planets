@@ -73,7 +73,6 @@ export default {
 
 <style>
 .Header-container {
-    padding: 0 3vw;
     height: 10vh;
     border-bottom: 0.1vh solid white;
     width: 100vw;
@@ -85,10 +84,12 @@ export default {
     font-size: 1.9em;
     color: white;
     letter-spacing: -1.05px;
+    margin-left: 3vw;
 }
 
 .Header-menu {
     gap: 2vw;
+    margin-right: 2vw;
 }
 
 .Header-menu-button {
