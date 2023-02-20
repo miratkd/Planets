@@ -1,9 +1,14 @@
 <template>
+    <div class="content-mobile-buttons">
+        <div v-on:click="setStage(1)" class="content-mobile-button" :style="isActiveMobile(1)">Resumo</div>
+        <div v-on:click="setStage(2)" class="content-mobile-button" :style="isActiveMobile(2)">Estrutura interna</div>
+        <div v-on:click="setStage(3)" class="content-mobile-button" :style="isActiveMobile(3)">Geologia da superface</div>
+    </div>
     <div class="content-container">
         <div class="content-image-container">
-            <img v-if="stage == 1" :src="require('@/assets/'+planet.image1)" alt="mercury">
-            <img v-else-if="stage == 2" :src="require('@/assets/'+planet.image2)" alt="mercury">
-            <img v-else :src="require('@/assets/'+planet.image3)" alt="mercury">
+            <img v-if="stage == 1" :src="require('@/assets/'+planet.image1)" alt="mercury" class="content-image-mobile">
+            <img v-else-if="stage == 2" :src="require('@/assets/'+planet.image2)" alt="mercury" class="content-image-mobile">
+            <img v-else :src="require('@/assets/'+planet.image3)" alt="mercury" class="content-image-mobile">
         </div>
         <div class="content-info-container">
             <div class="content-info-value">
@@ -47,7 +52,8 @@ export default {
     }, 
     methods: {
         setStage (number) { this.stage = number },
-        isActive ( number ) { if (this.stage == number) return 'background-color: ' + this.planet.color}
+        isActive ( number ) { if (this.stage == number) return 'background-color: ' + this.planet.color},
+        isActiveMobile ( number ) { if (this.stage == number) return 'opacity: 1; border-bottom: 1vh solid ' + this.planet.color}
     }
 }
 </script>
@@ -65,8 +71,9 @@ export default {
         min-height: 50vh;
     }
     .content-info-planet-overview-height{
-        min-height: 17vh;
+        min-height: 19vh;
     }
+    .content-mobile-buttons{display: none;}
     .content-info-container{
         flex-direction: column;
         width: 35%;
@@ -151,5 +158,32 @@ export default {
         .content-info-source-link{font-size: 2em; }
         .content-info-source-icon{ font-size: 3em;}
         .content-info-source-container{ gap: 1.5vw; }
+    }
+    @media (max-width: 430px){
+        .content-image-mobile{ transform: scale(0.6); }
+        .content-info-buttons{ display: none; }
+        .content-info-value{
+            width: 100%;
+            align-items: center;
+        }
+        .content-info-planet-name{font-size: 11em;}
+        .content-info-planet-text{font-size: 3em;}
+        .content-info-source-link{font-size: 4em;}
+        .content-info-source-icon{font-size: 5em;}
+        .content-mobile-buttons{
+            display: flex;
+            border-bottom: 0.1vh solid white;
+            justify-content: space-evenly;
+            width: 100vw;
+        }
+        .content-mobile-button{
+            color: white;
+            opacity: 0.5;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.6em;
+            padding: 2vh 0;
+            border-bottom: 1vh solid transparent;
+        }
     }
 </style>

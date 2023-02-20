@@ -66,7 +66,11 @@ export default {
         }
     },
     methods: {
-        openMobileMenu() { this.showMobileMenu = !this.showMobileMenu }
+        openMobileMenu() { 
+            this.showMobileMenu = !this.showMobileMenu 
+            if (this.showMobileMenu) document.body.style.overflow = "hidden";
+            else document.body.style.overflow = "unset";
+        }
     }
 }
 </script>
@@ -125,6 +129,7 @@ export default {
         color: white;
         font-size: 2.2em;
         display: flex;
+        padding-right: 3vw;
     }
     .mercury-color{background: #DEF4FC;}
     .venus-color{background: #F7CC7F;}
@@ -136,9 +141,10 @@ export default {
     .neptune-color{background: #497EFA;}
     .Header-mobile-menu-container {
         background-color: #070724;
-        position: absolute;
+        position: fixed;
+        z-index: 2;
         top: 10.1vh;
-        height: 86vh;
+        height: 90vh;
         width: 100vw;
         padding-top: 3vh;
         flex-direction: column;

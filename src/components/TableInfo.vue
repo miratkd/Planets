@@ -46,6 +46,7 @@
         color: white;
         opacity: 0.5;
         margin: 0;
+        text-transform: uppercase;
     }
     .content-table-square-value{
         font-weight: 400;
@@ -56,7 +57,23 @@
         font-family: 'Antonio';
     }
     @media (max-width: 820px) {
-        .content-table-square-title{font-size: 2em;}
+        .content-table-square-title{font-size: 1.25em;}
         .content-table-square-value{font-size: 3em;}
+    }
+    @media (max-width: 430px) {
+        .content-table-container{ 
+            margin-top: 2vh; 
+            padding-bottom: 5vh;
+            flex-direction: column;
+            width: 80%;
+        }
+        .content-table-square{ 
+            width: 100%; 
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .content-table-square-title{font-size: 3em}
+        .content-table-square-value{font-size: 5em;}
     }
 </style>
