@@ -29,7 +29,8 @@
 <style>
     .content-table-container{
         gap: 4vw;
-        margin-top: 7vh;
+        margin-top: 5vh;
+        margin-bottom: 3vh;
         font-size: 1vw;
     }
     .content-table-square{

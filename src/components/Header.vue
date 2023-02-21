@@ -2,54 +2,54 @@
     <div role="heading" class="Header-container">
         <div class="Header-title">THE PLANETS</div>
         <div class="Header-menu desktop">
-            <button class="Header-menu-button">Mercúrio</button>
-            <button class="Header-menu-button">Vênus</button>
-            <button class="Header-menu-button">Terra</button>
-            <button class="Header-menu-button">Marte</button>
-            <button class="Header-menu-button">Júpiter</button>
-            <button class="Header-menu-button">Saturno</button>
-            <button class="Header-menu-button">Urano</button>
-            <button class="Header-menu-button">Netuno</button>
+            <button class="Header-menu-button" v-on:click="() => setPlanet(solarSistem.mercury)">Mercúrio</button>
+            <button class="Header-menu-button" v-on:click="() => setPlanet(solarSistem.venus)">Vênus</button>
+            <button class="Header-menu-button" v-on:click="() => setPlanet(solarSistem.earth)">Terra</button>
+            <button class="Header-menu-button" v-on:click="() => setPlanet(solarSistem.mars)">Marte</button>
+            <button class="Header-menu-button" v-on:click="() => setPlanet(solarSistem.jupiter)">Júpiter</button>
+            <button class="Header-menu-button" v-on:click="() => setPlanet(solarSistem.saturn)">Saturno</button>
+            <button class="Header-menu-button" v-on:click="() => setPlanet(solarSistem.uranus)">Urano</button>
+            <button class="Header-menu-button" v-on:click="() => setPlanet(solarSistem.neptune)">Netuno</button>
         </div>
         <span v-on:click="openMobileMenu()" class="material-icons Header-mobile-menu mobile">menu</span>
     </div>
     <div v-if="showMobileMenu" class="Header-mobile-menu-container mobile">
-        <div class="Header-mobile-menu-row">
+        <div class="Header-mobile-menu-row" v-on:click="() => {setPlanet(solarSistem.mercury); openMobileMenu()}">
             <div class="Header-mobile-planet-icon mercury-color"></div>
             <p class="Header-mobile-planet-name">Mercúrio</p>
             <span class="material-icons Header-mobile-planet-open-icon">arrow_forward_ios</span>
         </div>
-        <div class="Header-mobile-menu-row">
+        <div class="Header-mobile-menu-row" v-on:click="() => {setPlanet(solarSistem.venus); openMobileMenu()}">
             <div class="Header-mobile-planet-icon venus-color"></div>
             <p class="Header-mobile-planet-name">Vênus</p>
             <span class="material-icons Header-mobile-planet-open-icon">arrow_forward_ios</span>
         </div>
-        <div class="Header-mobile-menu-row">
+        <div class="Header-mobile-menu-row" v-on:click="() => {setPlanet(solarSistem.earth); openMobileMenu()}">
             <div class="Header-mobile-planet-icon earth-color"></div>
             <p class="Header-mobile-planet-name">Terra</p>
             <span class="material-icons Header-mobile-planet-open-icon">arrow_forward_ios</span>
         </div>
-        <div class="Header-mobile-menu-row">
+        <div class="Header-mobile-menu-row" v-on:click="() => {setPlanet(solarSistem.mars); openMobileMenu()}">
             <div class="Header-mobile-planet-icon mars-color"></div>
             <p class="Header-mobile-planet-name">Marte</p>
             <span class="material-icons Header-mobile-planet-open-icon">arrow_forward_ios</span>
         </div>
-        <div class="Header-mobile-menu-row">
+        <div class="Header-mobile-menu-row" v-on:click="() => {setPlanet(solarSistem.jupiter); openMobileMenu()}">
             <div class="Header-mobile-planet-icon jupiter-color"></div>
             <p class="Header-mobile-planet-name">Júpiter</p>
             <span class="material-icons Header-mobile-planet-open-icon">arrow_forward_ios</span>
         </div>
-        <div class="Header-mobile-menu-row">
+        <div class="Header-mobile-menu-row" v-on:click="() => {setPlanet(solarSistem.saturn); openMobileMenu()}">
             <div class="Header-mobile-planet-icon saturn-color"></div>
             <p class="Header-mobile-planet-name">Saturno</p>
             <span class="material-icons Header-mobile-planet-open-icon">arrow_forward_ios</span>
         </div>
-        <div class="Header-mobile-menu-row">
+        <div class="Header-mobile-menu-row" v-on:click="() => {setPlanet(solarSistem.uranus); openMobileMenu()}">
             <div class="Header-mobile-planet-icon uranus-color"></div>
             <p class="Header-mobile-planet-name">Urano</p>
             <span class="material-icons Header-mobile-planet-open-icon">arrow_forward_ios</span>
         </div>
-        <div class="Header-mobile-menu-row">
+        <div class="Header-mobile-menu-row" v-on:click="() => {setPlanet(solarSistem.neptune); openMobileMenu()}">
             <div class="Header-mobile-planet-icon neptune-color"></div>
             <p class="Header-mobile-planet-name">Netuno</p>
             <span class="material-icons Header-mobile-planet-open-icon">arrow_forward_ios</span>
@@ -60,6 +60,7 @@
 <script>
 export default {
     name: "HeaderComponent",
+    props:[ 'setPlanet', 'solarSistem'],
     data () {
         return {
             showMobileMenu: false

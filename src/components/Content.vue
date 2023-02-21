@@ -6,9 +6,9 @@
     </div>
     <div class="content-container">
         <div class="content-image-container">
-            <img v-if="stage == 1" :src="require('@/assets/'+planet.image1)" alt="mercury" class="content-image-mobile">
-            <img v-else-if="stage == 2" :src="require('@/assets/'+planet.image2)" alt="mercury" class="content-image-mobile">
-            <img v-else :src="require('@/assets/'+planet.image3)" alt="mercury" class="content-image-mobile">
+            <img v-show="stage == 1" :src="require('@/assets/'+planet.image1)" alt="mercury" class="content-image-mobile">
+            <img v-show="stage == 2" :src="require('@/assets/'+planet.image2)" alt="mercury" class="content-image-mobile">
+            <img v-show="stage == 3" :src="require('@/assets/'+planet.image3)" alt="mercury" class="content-image-mobile">
         </div>
         <div class="content-info-container">
             <div class="content-info-value">
@@ -46,14 +46,15 @@ export default {
     name: 'PageContent',
     props: ['planet'],
     data () {
-        return {
-            stage: 1
-        }
+        return { stage: 1 }
     }, 
     methods: {
         setStage (number) { this.stage = number },
         isActive ( number ) { if (this.stage == number) return 'background-color: ' + this.planet.color},
         isActiveMobile ( number ) { if (this.stage == number) return 'opacity: 1; border-bottom: 1vh solid ' + this.planet.color}
+    },
+    watch: {
+        planet () {this.stage = 1}
     }
 }
 </script>
@@ -61,7 +62,7 @@ export default {
 <style>
     .content-container{
         width: 80vw;
-        margin-top: 5vh;
+        margin-top: 4vh;
         align-items: flex-start;
         font-size: 1vw;
     }
